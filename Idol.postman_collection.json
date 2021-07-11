@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "9b173f51-6355-4b92-9bea-01f0d5eb460c",
+		"name": "Idol",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "Get all employee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 200 OK\"), function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"};\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic d2ViX2FwcDpjaGFuZ2VpdA==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/employees",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all employee - Authorization",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic d2ViX2FwcD",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/employees",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get employee by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 200 OK\"), function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic d2ViX2FwcDpjaGFuZ2VpdA==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/employees/38841",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"employees",
+								"38841"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new employee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code 200 OK\"), function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"};\r",
+									"\r",
+									"// var jsonData = JSON.parse(responseBody);\r",
+									"// pm.globals.set(\"msg\", jsonData.status_message);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// // set an initial number into the global variable.\r",
+									"// pm.globals.set(\"id_test\", 1);\r",
+									"// // Add one value into the initial variable\r",
+									"// pm.globals.set(\"id_test\", pm.globals.get(\"id_test\") +1);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic d2ViX2FwcDpjaGFuZ2VpdA==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"employee_name\": \"{{data}}\",\r\n\"employee_salary\": \"10\",\r\n\"employee_age\": \"30\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/employees",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update employee",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic d2ViX2FwcDpjaGFuZ2VpdA==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"id\": \"38841\",\r\n \"employee_name\": \"Hanh Hanh\",\r\n \"employee_salary\": \"100\",\r\n \"employee_age\": \"29\"\r\n }"
+						},
+						"url": {
+							"raw": "{{URL}}/employees",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete employee",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic d2ViX2FwcDpjaGFuZ2VpdA==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\" : \"38841\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/employees",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee2",
+			"item": [
+				{
+					"name": "Get all employee Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 200 OK\"), function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"};\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic d2ViX2FwcDpjaGFuZ2VpdA==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://sangbui.com/api/v1/employees",
+							"protocol": "http",
+							"host": [
+								"sangbui",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
